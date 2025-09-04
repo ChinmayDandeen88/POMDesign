@@ -29,6 +29,7 @@ public class LoginPage {
 			                       //By.xpath("//h2[text()='New Customer']");
 	
 	private final By RegistarLink = By.linkText("Register");
+	private final By shop = By.linkText("shop"); // dummy xpath 
 	
 	// public constructor
 	public LoginPage(WebDriver driver) {

@@ -6,6 +6,8 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.Properties;
 
+import org.apache.log4j.LogManager;
+import org.apache.log4j.Logger;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
@@ -26,6 +28,7 @@ public class DriverFactory {
 	
 	public static ThreadLocal<WebDriver> tldriver= new ThreadLocal<WebDriver>();
 	
+	private static final Logger log = LogManager.getLogger(DriverFactory.class);
 	
 	/**
 	 * This method is initializing the driver on basis of browser
@@ -35,7 +38,9 @@ public class DriverFactory {
 	public WebDriver initDriver(Properties prop) {
 		
 		String browserName = prop.getProperty("browser");
-		System.out.println("browser name is "+ browserName);
+		//System.out.println("browser name is "+ browserName);
+		log.info("browserName is "+ browserName);
+		
 		
 		highlightElement = prop.getProperty("highlight");
 		
@@ -62,7 +67,8 @@ public class DriverFactory {
 			break;
 			
 		default:
-			System.out.println(AppError.INVALID_BROWSER_MSG + ":"+ browserName );
+			//System.out.println(AppError.INVALID_BROWSER_MSG + ":"+ browserName );
+			log.error("AppError.INVALID_BROWSER_MSG + :" + browserName);
 			throw new FrameworkException("======== INVALID BROWSER NAME GIVEN ============");
 		}
 		getDriver().manage().deleteAllCookies();

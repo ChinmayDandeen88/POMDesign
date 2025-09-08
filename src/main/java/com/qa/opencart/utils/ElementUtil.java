@@ -4,6 +4,8 @@ import java.time.Duration;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.apache.log4j.LogManager;
+import org.apache.log4j.Logger;
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoAlertPresentException;
@@ -22,6 +24,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import com.qa.opencart.drivermanager.DriverFactory;
 import com.qa.opencart.exceptions.ElementException;
+import com.qa.opencart.pages.LoginPage;
 import com.qa.opencart.tests.JavaScriptUtil;
 
 import io.qameta.allure.Step;
@@ -31,6 +34,8 @@ public class ElementUtil {
 	private WebDriver driver;
 	private Actions act;
 	private JavaScriptUtil jsUtil;
+	
+	private static final Logger log = LogManager.getLogger(ElementUtil.class);
 
 	public ElementUtil(WebDriver driver) {
 		this.driver = driver;

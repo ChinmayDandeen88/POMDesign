@@ -1,5 +1,7 @@
 package com.qa.opencart.pages;
 
+import org.apache.log4j.LogManager;
+import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
@@ -30,6 +32,8 @@ public class RegisterPage {
 	private final By logoutBttn = By.linkText("Logout");
 	private final By registerLink = By.linkText("Register");
 
+	private static final Logger log = LogManager.getLogger(RegisterPage.class);
+
 
 	public boolean userRegister(String firstname,String lastname,String emailid,String telephonenum, 
 			String passwordf,String subscribe) {
@@ -40,7 +44,7 @@ public class RegisterPage {
 		eleUtil.doSendKeys(telephoneNumber, telephonenum);
 		eleUtil.doSendKeys(password, passwordf);
 		eleUtil.doSendKeys(confirmPassword, passwordf);
-		eleUtil.doSendKeys(subscribeNo, subscribe);
+		eleUtil.doSendKeys(subscribeNo, subscribe);		
 
 		if(subscribe.equalsIgnoreCase("yes")) {
 			eleUtil.doClick(subscribeYes);
@@ -53,7 +57,7 @@ public class RegisterPage {
 		
 		String RegistersuccessMsg = eleUtil.waitForElementVisible(successMsg,AppConstants.DEFAULT_MEDIUM_WAIT).getText();
 		System.out.println(RegistersuccessMsg);
-		
+		log.info(RegistersuccessMsg);
 		if(RegistersuccessMsg.contains(AppConstants.USER_REGISTER_SUCCESS_MSG)) {
 			eleUtil.doClick(logoutBttn);
 			eleUtil.doClick(registerLink);	

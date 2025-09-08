@@ -1,9 +1,12 @@
 package com.qa.opencart.pages;
 
+import org.apache.log4j.LogManager;
+import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
 import com.qa.opencart.constants.AppConstants;
+import com.qa.opencart.drivermanager.DriverFactory;
 import com.qa.opencart.utils.ElementUtil;
 
 import io.qameta.allure.Step;
@@ -31,6 +34,8 @@ public class LoginPage {
 	private final By RegistarLink = By.linkText("Register");
 	private final By shop = By.linkText("shop"); // dummy xpath 
 	
+	private static final Logger log = LogManager.getLogger(LoginPage.class);
+	
 	// public constructor
 	public LoginPage(WebDriver driver) {
 		this.driver = driver;
@@ -41,7 +46,8 @@ public class LoginPage {
 	@Step("getting login page title...")
 	public String getLoginPageTitle() {	
 		String loginpagetitle = eleUtil.waitForTitleIs(AppConstants.LOGIN_PAGE_TITLE, AppConstants.DEFAULT_SHORT_WAIT);
-		System.out.println("Login Page Title is :" + loginpagetitle);
+		//System.out.println("Login Page Title is :" + loginpagetitle);
+		log.info("Login Page Title is :" + loginpagetitle);
 		return loginpagetitle;
 	}
 	
@@ -49,7 +55,8 @@ public class LoginPage {
 	public String getLoginPageURL() {
 		String loginPageURL = eleUtil.waitForURLContains(AppConstants.LOGIN_PAGE_FRACTION_URL,AppConstants.DEFAULT_SHORT_WAIT);
 		//String loginPageURL = driver.getCurrentUrl();
-		System.out.println("Login Page URL is :"+loginPageURL);
+		//System.out.println("Login Page URL is :"+loginPageURL);
+		log.info("Login Page URL is :" +loginPageURL);
 		return loginPageURL;
 	}
 	
@@ -66,7 +73,8 @@ public class LoginPage {
 	
 	@Step("getting login page login inputs...")
 	public AccountsPage doLogin(String Appusername,String Apppwd) {
-		System.out.println("username is :"+ Appusername + " password is :"+ Apppwd);
+		//System.out.println("username is :"+ Appusername + " password is :"+ Apppwd);
+		log.info("username is :"+ Appusername + " password is :"+ Apppwd);
 		eleUtil.waitForElementVisible(emailID, AppConstants.DEFAULT_MEDIUM_WAIT).sendKeys(Appusername);
 		eleUtil.doSendKeys(password, Apppwd);
 		eleUtil.doClick(loginBttn);

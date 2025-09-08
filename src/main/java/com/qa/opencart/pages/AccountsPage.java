@@ -3,6 +3,8 @@ package com.qa.opencart.pages;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.apache.log4j.LogManager;
+import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -25,12 +27,13 @@ public class AccountsPage {
 	private final By searchPlaceholder = By.xpath("//input[@name=\"search\"]");
 	private final By searchBttn = By.xpath("//button[@class=\"btn btn-default btn-lg\"]");
 
-
+	private static final Logger log = LogManager.getLogger(AccountsPage.class);
 
 	public List<String> AccountPageHeaders() {
 		List<WebElement> headerList = eleUtil.waitForElementsPresence(headers, AppConstants.DEFAULT_SHORT_WAIT);
 		//List<WebElement> headerList= driver.findElements(headers);
-		System.out.println("size of the headerlist is :"+ headerList.size());
+		//System.out.println("size of the headerlist is :"+ headerList.size());
+		log.info("size of the headerlist is :"+ headerList.size());
 		List<String> headersFullList = new ArrayList<String>();
 		for(WebElement e : headerList) {
 			String headerListText = e.getText();

@@ -6,6 +6,8 @@ import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
 
+import org.apache.log4j.LogManager;
+import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -29,17 +31,20 @@ public class ProductInfoPage {
 	private final By productMetaData = By.xpath("(//div[@id='content']//ul[@class='list-unstyled'])[1]/li");
 	private final By productPriceMetaData = By.xpath("(//div[@id='content']//ul[@class='list-unstyled'])[2]/li");
 	
+	private static final Logger log = LogManager.getLogger(ProductInfoPage.class);
 	
 	public String productHeader() {
 		String productHeaderText = eleUtil
 									.waitForElementVisible(productNameText, AppConstants.DEFAULT_SHORT_WAIT).getText();
-		System.out.println("product header name is --> "+ productHeaderText);
+		//System.out.println("product header name is --> "+ productHeaderText);
+		log.info("product header name is --> "+ productHeaderText);
 		return productHeaderText;
 	}
 	
 	public int getProductImages() {
 		int imagesCount = eleUtil.waitForElementsVisible(productImages, AppConstants.DEFAULT_MEDIUM_WAIT).size();
-		System.out.println("Images count is "+ imagesCount);
+		//System.out.println("Images count is "+ imagesCount);
+		log.info("Images count is "+ imagesCount);
 		return imagesCount;	
 	}
 	
@@ -55,7 +60,8 @@ public class ProductInfoPage {
 		productMap.put("productimages", String.valueOf(getProductImages()));
 		getProductMetaData();
 		getProductPriceMetaData();
-		System.out.println("========== product data ============\n"+ productMap);
+		//System.out.println("========== product data ============\n"+ productMap);
+		log.info("========== product data ============\n"+ productMap);
 		return productMap;
 		
 	}

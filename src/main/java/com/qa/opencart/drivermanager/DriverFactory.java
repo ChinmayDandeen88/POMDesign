@@ -6,8 +6,8 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.Properties;
 
-import org.apache.log4j.LogManager;
-import org.apache.log4j.Logger;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
@@ -16,7 +16,7 @@ import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.safari.SafariDriver;
 
-import com.qa.opencart.errors.AppError;
+
 import com.qa.opencart.exceptions.FrameworkException;
 
 public class DriverFactory {
@@ -29,6 +29,8 @@ public class DriverFactory {
 	public static ThreadLocal<WebDriver> tldriver= new ThreadLocal<WebDriver>();
 	
 	private static final Logger log = LogManager.getLogger(DriverFactory.class);
+	
+	public OptionsManager optionsManger;
 	
 	/**
 	 * This method is initializing the driver on basis of browser
@@ -43,17 +45,18 @@ public class DriverFactory {
 		
 		
 		highlightElement = prop.getProperty("highlight");
+		optionsManger = new OptionsManager(prop);
 		
 		switch (browserName.trim().toLowerCase()) {
 		
 		case "chrome":
 			//driver = new ChromeDriver();
-			tldriver.set(new ChromeDriver());
+			tldriver.set(new ChromeDriver(optionsManger.getChromeOptions()));
 			break;
 
 		case "firefox":
 			//driver = new FirefoxDriver();
-			tldriver.set(new FirefoxDriver());
+			tldriver.set(new FirefoxDriver(optionsManger.getFirefoxOptions()));
 			break;
 			
 		case "safari":
@@ -63,7 +66,7 @@ public class DriverFactory {
 			
 		case "edge":
 			//driver = new EdgeDriver();
-			tldriver.set(new EdgeDriver());
+			tldriver.set(new EdgeDriver(optionsManger.getEdgeOptions()));
 			break;
 			
 		default:

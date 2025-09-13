@@ -16,6 +16,7 @@ import org.testng.annotations.Parameters;
 import com.aventstack.chaintest.plugins.ChainTestListener;
 import com.qa.opencart.drivermanager.DriverFactory;
 import com.qa.opencart.pages.AccountsPage;
+import com.qa.opencart.pages.CommonsPage;
 import com.qa.opencart.pages.LoginPage;
 import com.qa.opencart.pages.ProductInfoPage;
 import com.qa.opencart.pages.RegisterPage;
@@ -42,6 +43,7 @@ public class BaseTest {
 	protected SearchResultPage searchResultPage;
 	protected ProductInfoPage productInfoPage;
 	protected RegisterPage registerPage;
+	protected CommonsPage commonPage;
 
 	@Description("launch te browser {0} and the url ")
 	@Parameters({"browser"})
@@ -55,6 +57,7 @@ public class BaseTest {
 		}
 		driver = df.initDriver(prop);
 		loginPage = new LoginPage(driver);
+		commonPage = new CommonsPage(driver);
 	}
 	
 	@Description("taking the screenshot of each test method..")

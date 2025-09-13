@@ -33,7 +33,7 @@ public class LoginPage {
 	
 	private final By RegistarLink = By.linkText("Register");
 	
-	private final By errorLoginMsgText = By.xpath("//div[text()='Warning: No match for E-Mail Address and/or Password']");
+	//private final By errorLoginMsgText = By.xpath("//div[text()='Warning: No match for E-Mail Address and/or Password']");
 	private final By loginErrorMessg = By.cssSelector("div.alert.alert-danger.alert-dismissible");
 	
 	private final By shop = By.linkText("shop"); // dummy xpath 

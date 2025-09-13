@@ -18,6 +18,9 @@ public class AppConstants {
 	
 	public static final String USER_REGISTER_SUCCESS_MSG = "Your Account Has Been Created!";
 	
+	public static final String INVALID_CREDENTIALS_ERROR_MSG = "Warning: No match for E-Mail Address and/or Password.";
+	public static final String BLANK_CREDENTIALS_ERROR_MSG = "Warning: Your account has exceeded allowed number of login attempts. Please try again in 1 hour.";
+	
 	public static List<String> expected_ACC_Page_Header_List = List.of("My Account",
 																		"My Orders",
 																		"My Affiliate Account",

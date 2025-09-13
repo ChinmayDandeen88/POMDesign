@@ -32,6 +32,10 @@ public class LoginPage {
 			                       //By.xpath("//h2[text()='New Customer']");
 	
 	private final By RegistarLink = By.linkText("Register");
+	
+	private final By errorLoginMsgText = By.xpath("//div[text()='Warning: No match for E-Mail Address and/or Password']");
+	private final By loginErrorMessg = By.cssSelector("div.alert.alert-danger.alert-dismissible");
+	
 	private final By shop = By.linkText("shop"); // dummy xpath 
 	
 	private static final Logger log = LogManager.getLogger(LoginPage.class);
@@ -71,7 +75,7 @@ public class LoginPage {
 		return eleUtil.isElementDisplayed(headerName);
 	}
 	
-	@Step("getting login page login inputs...")
+	@Step("getting login page login correct inputs...")
 	public AccountsPage doLogin(String Appusername,String Apppwd) {
 		//System.out.println("username is :"+ Appusername + " password is :"+ Apppwd);
 		log.info("username is :"+ Appusername + " password is :"+ Apppwd);
@@ -82,6 +86,25 @@ public class LoginPage {
 		//driver.findElement(password).sendKeys(Apppwd);
 		//driver.findElement(loginBttn).click();
 		return new AccountsPage(driver);
+	}
+	
+	@Step("negative test with invalid inputs...")
+	public boolean doLoginWithInvalidCredentials(String invalidUserName,String inValidPassword) {
+		log.info("Invalid Username is :" + invalidUserName + "Invalid password is :" + inValidPassword);
+		eleUtil.waitForElementVisible(emailID, AppConstants.DEFAULT_MEDIUM_WAIT).clear();
+		eleUtil.waitForElementVisible(emailID, AppConstants.DEFAULT_MEDIUM_WAIT).sendKeys(invalidUserName);
+		eleUtil.doSendKeys(password, inValidPassword);
+		eleUtil.doClick(loginBttn);
+		String erroMsg = eleUtil.doElementGetText(loginErrorMessg);
+		log.info("Error msg getting displayed is"+ erroMsg);
+		if(erroMsg.contains(AppConstants.BLANK_CREDENTIALS_ERROR_MSG)) {
+			return true;
+		}
+		else if(erroMsg.contains(AppConstants.INVALID_CREDENTIALS_ERROR_MSG)) {
+			return true;
+		}
+		return false;
+		
 	}
 	
 	@Step("navigating to registration page ...")

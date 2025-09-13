@@ -47,7 +47,10 @@ public class ElementUtil {
 		if (value == null) {
 			throw new ElementException("===value can not be null====");
 		}
-		getElement(locator).sendKeys(value);
+		
+		WebElement ele = getElement(locator);
+		ele.clear();
+		ele.sendKeys(value);
 	}
 
 	public void doMultipleSendKeys(By locator, CharSequence... value) {

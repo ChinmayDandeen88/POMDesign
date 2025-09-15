@@ -21,9 +21,9 @@ public class RegisterPageTest extends BaseTest {
 	@DataProvider
 	public Object[][] getRegData() {
 		return new Object[][] {
-			{"chinmay","uiautomation","9182883487","chin@123","yes"},
-			{"dandeen","uiautomation","9182883488","chin@123","no"},
-			{"ramesh","uiautomation","9182883489","chin@123","yes"},
+			{"test_04","uiautomation","9182883487","chin@123","yes"},
+			{"test_02","uiautomation","9182883488","chin@123","yes"},
+			{"test_03","uiautomation","9182883489","chin@123","yes"},
 		};
 	}
 	

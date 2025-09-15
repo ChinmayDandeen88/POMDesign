@@ -79,6 +79,7 @@ public class LoginPage {
 	public AccountsPage doLogin(String Appusername,String Apppwd) {
 		//System.out.println("username is :"+ Appusername + " password is :"+ Apppwd);
 		log.info("username is :"+ Appusername + " password is :"+ Apppwd);
+		eleUtil.waitForElementVisible(emailID, AppConstants.DEFAULT_MEDIUM_WAIT).clear();
 		eleUtil.waitForElementVisible(emailID, AppConstants.DEFAULT_MEDIUM_WAIT).sendKeys(Appusername);
 		eleUtil.doSendKeys(password, Apppwd);
 		eleUtil.doClick(loginBttn);

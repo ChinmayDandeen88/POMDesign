@@ -96,8 +96,8 @@ public class DriverFactory {
 		prop = new Properties();
 		FileInputStream ip = null;
 
-		String envName = System.getProperty("env").trim();
-		log.info("envirnoment name is ...." + envName);
+		String envName = System.getProperty("env");
+		log.info("envirnoment name is ==== > ...." + envName); // this stmt is not getting printed 
 
 		try {
 			if(envName == null) {
@@ -105,7 +105,7 @@ public class DriverFactory {
 				ip = new FileInputStream("./src/test/resourcess/config/config.qa.properties");
 			}
 			else {
-				switch(envName) {
+				switch(envName.trim().toLowerCase()) {
 				case "qa": 
 					ip = new FileInputStream("./src/test/resourcess/config/config.qa.properties");	
 					break;
@@ -123,7 +123,7 @@ public class DriverFactory {
 					break;	
 				default: 
 					log.error("envirnoment value is invalid,please pass correct envirnoment" );
-					throw new FrameworkException("=========Invalid ENVIRNOMENT========");
+					throw new FrameworkException("=========Invalid ENVIRNOMENT======== ?");
 				}
 			}
 		}

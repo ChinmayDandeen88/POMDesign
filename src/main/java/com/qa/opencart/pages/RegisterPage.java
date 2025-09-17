@@ -49,7 +49,7 @@ public class RegisterPage {
 	public boolean userRegister(String firstName, String lastName, String email, String telephone, String password,
 			String subscribe) {
 
-		eleUtil.waitForElementVisible(this.firstName, AppConstants.DEFAULT_SHORT_WAIT).sendKeys(firstName);
+		eleUtil.waitForElementVisible(this.firstName, AppConstants.DEFAULT_LONG_WAIT).sendKeys(firstName);
 		eleUtil.doSendKeys(this.lastName, lastName);
 		eleUtil.doSendKeys(this.email, email);
 		eleUtil.doSendKeys(this.telephone, telephone);

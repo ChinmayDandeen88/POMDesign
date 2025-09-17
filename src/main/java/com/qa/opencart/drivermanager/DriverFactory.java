@@ -85,12 +85,12 @@ public class DriverFactory {
 		return tldriver.get();
 	}
 
+	
+	
 	/**
 	 * This method is init prop with property file..
 	 * @return
 	 */
-
-
 	public Properties initProp() {
 
 		prop = new Properties();

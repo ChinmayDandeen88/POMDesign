@@ -46,7 +46,7 @@ public class RegisterPageTest extends BaseTest {
 		return CsvUtil.csvData("register");
 	}
 
-	@Test(dataProvider="getregCSVdata")
+	@Test(dataProvider="getRegData")
 	public void goToUserRegistrationTest(String firstname,String lastname,String telephone,String password,String subscribe) {
 		Assert.assertTrue
 		(registerPage.userRegister(firstname, lastname, StringUtil.getRandomEmail(), telephone, password, subscribe));

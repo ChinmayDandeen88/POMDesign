@@ -25,7 +25,7 @@ public class SearchTest extends BaseTest{
 	public void asearchResultCount() {
 		int searchcount = searchResultPage.getSearchResultsCount();
 		System.out.println("total searches appeared is "+ searchcount);
-		//return searchcount;
+		//return search count;
 	}
 
 }

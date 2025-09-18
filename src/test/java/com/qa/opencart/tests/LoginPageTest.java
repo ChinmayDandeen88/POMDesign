@@ -29,7 +29,7 @@ public class LoginPageTest extends BaseTest {
 	@Test
 	public void LoginPageTitleTest() {
 		String actualTitle = loginPage.getLoginPageTitle();
-		ChainTestListener.log("actual title is "+ actualTitle);
+		ChainTestListener.log("Actual title is "+ actualTitle);
 		Assert.assertEquals(actualTitle, AppConstants.LOGIN_PAGE_TITLE);
 	}
 	

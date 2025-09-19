@@ -119,7 +119,7 @@ public class DriverFactory {
 					ip = new FileInputStream("./src/test/resourcess/config/config.uat.properties");	
 					break;
 				case "prod": 
-					ip = new FileInputStream("./src/test/resourcess/config/config.uat.properties");	
+					ip = new FileInputStream("./src/test/resourcess/config/config.properties");	
 					break;	
 				default: 
 					log.error("envirnoment value is invalid,please pass correct envirnoment" );

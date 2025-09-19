@@ -17,7 +17,7 @@ import io.qameta.allure.Story;
 
 
 
-@Epic("epic : 100, design the open cart application page...")
+@Epic("epic : 100, design the open cart application page....")
 @Feature("login page design of open cart")
 @Story("develop login core features,such as login, title,forget password")
 public class LoginPageTest extends BaseTest {

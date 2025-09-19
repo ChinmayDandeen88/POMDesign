@@ -23,7 +23,7 @@ public class SearchResultPage {
 	
 	private static final Logger log = LogManager.getLogger(SearchResultPage.class);
 	
-	// * ---------------------------------------------------------------------------------- *// 
+	// * ------------------------------------------------------------------------------------ *// 
 	public int getSearchResultsCount() {
 		int resultsCount = eleUtil.waitForElementsPresence(searchResult, AppConstants.DEFAULT_MEDIUM_WAIT).size();
 		//System.out.println("results count is ---> "+ resultsCount);

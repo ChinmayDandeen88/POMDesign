@@ -18,7 +18,8 @@ public class LoginPage {
 	private ElementUtil eleUtil;
 	// private By locators : page objects
 	
-	private final By emailID = By.id("input-email"); //By.xpath("//input[@id='input-email']");
+	private final By emailID =  By.xpath("//input[@id='input-email']");
+	    						//By.id("input-email");
 	
 	                           // By.xpath("//input[@id='password']");
 	private final By password = By.id("input-password");

@@ -562,7 +562,7 @@ public class ElementUtil {
 				.withTimeout(Duration.ofSeconds(timeout))
 				.pollingEvery(Duration.ofMillis(pollingtime))
 				.ignoring(NoAlertPresentException.class)
-				.withMessage("=====Alert NOT VISIBLE ON THE PAGE====");
+				.withMessage("=====Alert NOT VISIBLE ON THE PAGE======");
 		
 		return wait.until(ExpectedConditions.alertIsPresent());
 	}

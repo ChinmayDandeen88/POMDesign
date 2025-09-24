@@ -31,6 +31,9 @@ public class OptionsManager {
 			log.info("Running tests in incognito mode");
 			co.addArguments("--incognito");
 		}
+		if (Boolean.parseBoolean(prop.getProperty("remote"))){ // used this code to open the browser in container
+			co.setCapability("browserName", "chrome");
+		}
 		return co;
 	}
 
@@ -44,6 +47,9 @@ public class OptionsManager {
 			log.info("Running tests in incognito mode");
 			fo.addArguments("--incognito");
 		}
+		if (Boolean.parseBoolean(prop.getProperty("remote"))){ // used this code to open the browser in container
+			fo.setCapability("browserName", "firefox");
+		}
 		return fo;
 	}
 
@@ -56,6 +62,9 @@ public class OptionsManager {
 		if (Boolean.parseBoolean(prop.getProperty("incognito"))) {
 			log.info("Running tests in incognito mode");
 			eo.addArguments("--inPrivate");
+		}
+		if(Boolean.parseBoolean(prop.getProperty("remote"))){ // used this code to open the browser in container
+			eo.setCapability("browserName", "Edge");
 		}
 		return eo;
 	}

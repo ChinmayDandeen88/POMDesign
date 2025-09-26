@@ -48,7 +48,7 @@ public class DriverFactory {
 		// System.out.println("browser name is "+ browserName);
 		log.info("browserName is " + browserName);
 
-	highlightElement = prop.getProperty("highlight");
+	    highlightElement = prop.getProperty("highlight");
 		optionsManger = new OptionsManager(prop);
 
 		boolean remoteExecution = Boolean.parseBoolean(prop.getProperty("remote"));

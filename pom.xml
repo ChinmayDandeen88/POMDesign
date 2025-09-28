@@ -20,6 +20,12 @@
 		<testng.version>7.7.0</testng.version>
 	</properties>
 
+    <distributionManagement>
+		<snapshotRepository>
+			<id>nexus-snapshots</id>
+			<url>http://admin:Gurudev@2305@localhost:8081/repository/maven-snapshots/ </url>
+		</snapshotRepository>
+	</distributionManagement>
 
 	<dependencies>
 
@@ -187,4 +193,3 @@
 	</build>
 		
 </project>
-

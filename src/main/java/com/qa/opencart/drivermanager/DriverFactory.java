@@ -23,8 +23,8 @@ import com.qa.opencart.errors.AppError;
 import com.qa.opencart.exceptions.FrameworkException;
 
 public class DriverFactory {
-
-	public WebDriver driver;
+ 
+	public WebDriver driver; 
 	public Properties prop;
 
 	public static String highlightElement;
